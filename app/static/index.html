@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Intelligence System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Document Intelligence System</h1>
+            <p>AI-powered document analysis, insights, and intelligent recommendations</p>
+
+        </header>
+
+        <section class="upload-section">
+            <h2> Upload PDF Documents</h2>
+            <p>Upload single or multiple PDFs to start analyzing</p>
+            
+            <div class="file-input-container">
+                <input type="file" id="fileInput" accept=".pdf" multiple class="file-input">
+                <label for="fileInput" class="file-label"> Choose PDF Files</label>
+            </div>
+            
+            <button onclick="uploadFile()" class="success"> Upload PDF</button>
+            <div id="selectedFiles" style="margin-top: 1rem;"></div>
+        </section>
+
+        <section id="documentsSection">
+            <h2> Your Documents</h2>
+            <div id="documentsGrid" class="documents-grid"></div>
+        </section>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Processing your document...</p>
+        </div>
+
+        <section id="documentView" class="document-view">
+            <h2> Document Analysis</h2>
+            
+            <div class="viewer-container">
+                <div class="viewer-controls">
+                    <button onclick="goBack()">← Back to Documents</button>
+                    <span id="currentDocTitle"></span>
+                    <button onclick="analyzeFullDocument()"> Generate Insights</button>
+                    <button onclick="generatePodcast()">Create Podcast</button>
+                </div>
+                <iframe id="pdfViewer" width="100%" height="600" style="border: none;"></iframe>
+            </div>
+
+            <div class="insights-container" id="insightsContainer" style="display: none;">
+                <h3>Document Insights</h3>
+                <div id="insightsContent"></div>
+            </div>
+
+            <div class="podcast-player" id="podcastContainer" style="display: none;">
+                <h3> Podcast Mode</h3>
+                <div id="podcastContent"></div>
+                <button onclick="playPodcast()">▶️ Play Podcast</button>
+                <button onclick="stopPodcast()">⏹️ Stop</button>
+            </div>
+
+            <div id="relatedSections" style="display: none;">
+                <h3> Related Sections</h3>
+                <div class="related-sections" id="relatedContent"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

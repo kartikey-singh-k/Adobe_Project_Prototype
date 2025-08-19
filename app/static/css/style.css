@@ -1,0 +1,326 @@
+/* ==============================
+   Global Styles & Variables
+============================== */
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-primary: #3498db;
+  --color-primary-dark: #2980b9;
+  --color-secondary: #95a5a6;
+  --color-success: #27ae60;
+  --color-dark: #2c3e50;
+  --color-muted: #7f8c8d;
+  --color-light: #f8f9fa;
+  --color-bg: #ffffff;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+  --transition: all 0.3s ease;
+}
+
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+/* ==============================
+   Layout
+============================== */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  background: var(--color-bg);
+  min-height: 100vh;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+}
+
+/* ==============================
+   Header
+============================== */
+header {
+  background: linear-gradient(135deg, var(--color-dark) 0%, #34495e 100%);
+  color: white;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==============================
+   Upload Section
+============================== */
+.upload-section {
+  background: var(--color-light);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  margin: 2rem 0;
+  text-align: center;
+  border: 2px dashed var(--color-primary);
+}
+
+.file-input-container {
+  margin: 1rem 0;
+  position: relative;
+}
+
+.file-input {
+  position: absolute;
+  left: -9999px;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.file-label:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   Document Cards
+============================== */
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.document-card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid #eee;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.document-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.document-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--color-dark);
+  font-size: 1.25rem;
+}
+
+.document-stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* ==============================
+   Buttons
+============================== */
+button {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  margin: 0.3rem;
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, #1f6aa5 100%);
+  transform: translateY(-2px);
+}
+
+button.secondary {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-muted) 100%);
+}
+
+button.success {
+  background: linear-gradient(135deg, var(--color-success) 0%, #229954 100%);
+}
+
+/* ==============================
+   Document View & Insights
+============================== */
+.document-view {
+  display: none;
+  margin: 2rem 0;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.viewer-container {
+  border: 2px solid #ddd;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.viewer-controls {
+  background: var(--color-light);
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.insights-container {
+  background: linear-gradient(135deg, var(--color-light) 0%, #e9ecef 100%);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  margin-top: 2rem;
+}
+
+.insight-section {
+  background: var(--color-bg);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.insight-section h4 {
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.insight-list {
+  list-style: none;
+}
+
+.insight-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.insight-list li:last-child {
+  border-bottom: none;
+}
+
+/* ==============================
+   Related Content
+============================== */
+.related-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.related-card {
+  background: var(--color-bg);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #e9ecef;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.related-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==============================
+   Podcast Player
+============================== */
+.podcast-player {
+  background: linear-gradient(135deg, #34495e 0%, var(--color-dark) 100%);
+  color: #fff;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  margin: 2rem 0;
+  box-shadow: var(--shadow-md);
+}
+
+/* ==============================
+   Loading Spinner
+============================== */
+.loading {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==============================
+   Features
+============================== */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.feature-card {
+  background: var(--color-bg);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
